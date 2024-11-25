@@ -19,7 +19,7 @@ SECRET_KEY = '-x!v43m0y^5fahncj(*#^!jq@nmmvs%(j)y1kz8)l3kvmoxoja'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -104,7 +104,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
@@ -149,3 +148,6 @@ CORS_ORIGIN_WHITELIST = [
 'http://localhost:8000',
 'http://localhost:8080',
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ORIGIN_ALLOW_ALL = True
