@@ -1,11 +1,13 @@
 # Stage 1: Build dependencies
 FROM python:3.10-slim AS builder
 
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
+
 # Set working directory
 WORKDIR /app
 
 # Install build dependencies
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc \
     libmariadb-dev \
     pkg-config \
@@ -20,6 +22,8 @@ RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
 
 # Stage 2: Runtime
 FROM python:3.10-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
 
 # Set working directory
 WORKDIR /app
@@ -36,7 +40,6 @@ COPY . .
 
 # Define the entrypoint and command
 ENTRYPOINT ["/app/entrypoint.sh"]
-CMD []  # No CMD is needed here because entrypoint.sh will handle it
 
 # Expose the necessary port
 EXPOSE 8000

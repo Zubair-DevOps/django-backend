@@ -1,10 +1,10 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:604977880911:task-definition/alson-test-td:14",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:604977880911:task-definition/alson-test-task-definition:1",
     "containerDefinitions": [
         {
             "name": "django-backend",
             "image": "604977880911.dkr.ecr.us-east-1.amazonaws.com/alson-django-backend:latest",
-            "cpu": 1024,
+            "cpu": 0,
             "portMappings": [
                 {
                     "name": "django-backend-8000-tcp",
@@ -28,7 +28,7 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/alson-test-td",
+                    "awslogs-group": "/ecs/alson-test-task-definition",
                     "mode": "non-blocking",
                     "awslogs-create-group": "true",
                     "max-buffer-size": "25m",
@@ -51,7 +51,7 @@
                     "protocol": "tcp"
                 }
             ],
-            "essential": false,
+            "essential": true,
             "environment": [],
             "environmentFiles": [],
             "mountPoints": [],
@@ -59,7 +59,7 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/alson-test-td",
+                    "awslogs-group": "/ecs/alson-test-task-definition",
                     "mode": "non-blocking",
                     "awslogs-create-group": "true",
                     "max-buffer-size": "25m",
@@ -71,12 +71,12 @@
             "systemControls": []
         }
     ],
-    "family": "alson-test-td",
+    "family": "alson-test-task-definition",
     "executionRoleArn": "arn:aws:iam::604977880911:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 14,
+    "revision": 1,
     "volumes": [],
-    "status": "INACTIVE",
+    "status": "ACTIVE",
     "requiresAttributes": [
         {
             "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
@@ -114,14 +114,13 @@
     "requiresCompatibilities": [
         "FARGATE"
     ],
-    "cpu": "1024",
-    "memory": "3072",
+    "cpu": "512",
+    "memory": "1024",
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-11-23T17:06:17.903Z",
-    "deregisteredAt": "2024-11-24T15:52:51.101Z",
+    "registeredAt": "2024-11-24T18:23:40.177Z",
     "registeredBy": "arn:aws:sts::604977880911:assumed-role/AWSReservedSSO_AdministratorAccess_646c93d042184b81/muhammad.zubair1@arbisoft.com",
     "tags": []
 }
