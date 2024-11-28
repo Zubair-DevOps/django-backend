@@ -4,7 +4,9 @@ from django.shortcuts import render
 from rest_framework import viewsets         
 from .serializers import UserSerializer      
 from .models import User
-from django.http import HttpResponse               
+from django.http import HttpResponse
+from django.http import JsonResponse
+
         
 class UserView(viewsets.ModelViewSet):      
   serializer_class = UserSerializer        
@@ -13,4 +15,4 @@ class UserView(viewsets.ModelViewSet):
 
 
 def home(request):
-    return HttpResponse("Status 200")
+    return JsonResponse({"status": "UP", "database": "connected"}, status=200)
