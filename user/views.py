@@ -15,4 +15,4 @@ class UserView(viewsets.ModelViewSet):
 
 
 def home(request):
-    return JsonResponse({"status": "UP", "database": "connected"}, status=200)
+    return JsonResponse({"Status": "UP", "Database": "Connected"}, status=200)
