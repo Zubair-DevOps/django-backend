@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:604977880911:task-definition/alson-test-task-definition:11",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:604977880911:task-definition/alson-test-td-file:1",
     "containerDefinitions": [
         {
             "name": "django-backend",
-            "image": "604977880911.dkr.ecr.us-east-1.amazonaws.com/alson-django-backend:771a40e1cc8498ddf64e6a7e57e80f6a7d1720e2",
+            "image": "604977880911.dkr.ecr.us-east-1.amazonaws.com/alson-django-backend:latest",
             "cpu": 0,
             "portMappings": [
                 {
@@ -21,28 +21,21 @@
                 "./entrypoint.sh"
             ],
             "environment": [],
+            "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
+            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/alson-test-task-definition",
+                    "awslogs-group": "/ecs/alson-test-td-file",
                     "mode": "non-blocking",
                     "awslogs-create-group": "true",
                     "max-buffer-size": "25m",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs"
-                }
-            },
-            "healthCheck": {
-                "command": [
-                    "CMD-SHELL",
-                    "curl -f http://localhost:8000/health || exit 1"
-                ],
-                "interval": 30,
-                "timeout": 5,
-                "retries": 3,
-                "startPeriod": 60
+                },
+                "secretOptions": []
             },
             "systemControls": []
         },
@@ -60,26 +53,28 @@
             ],
             "essential": true,
             "environment": [],
+            "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/alson-test-task-definition",
+                    "awslogs-group": "/ecs/alson-test-td-file",
                     "mode": "non-blocking",
                     "awslogs-create-group": "true",
                     "max-buffer-size": "25m",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs"
-                }
+                },
+                "secretOptions": []
             },
             "systemControls": []
         }
     ],
-    "family": "alson-test-task-definition",
+    "family": "alson-test-td-file",
     "executionRoleArn": "arn:aws:iam::604977880911:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 11,
+    "revision": 1,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -97,9 +92,6 @@
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.28"
-        },
-        {
-            "name": "ecs.capability.container-health-check"
         },
         {
             "name": "ecs.capability.execution-role-ecr-pull"
@@ -122,13 +114,13 @@
     "requiresCompatibilities": [
         "FARGATE"
     ],
-    "cpu": "512",
+    "cpu": "256",
     "memory": "1024",
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-11-28T09:38:59.060Z",
+    "registeredAt": "2024-12-01T19:39:42.257Z",
     "registeredBy": "arn:aws:sts::604977880911:assumed-role/AWSReservedSSO_AdministratorAccess_646c93d042184b81/muhammad.zubair1@arbisoft.com",
     "tags": []
 }
