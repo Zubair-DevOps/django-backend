@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:604977880911:task-definition/alson-test-td-file:1",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:604977880911:task-definition/alson-test-td-file:3",
     "containerDefinitions": [
         {
             "name": "django-backend",
@@ -74,7 +74,7 @@
     "family": "alson-test-td-file",
     "executionRoleArn": "arn:aws:iam::604977880911:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
+    "revision": 3,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -120,7 +120,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-12-01T19:39:42.257Z",
+    "registeredAt": "2024-12-09T18:46:45.144Z",
     "registeredBy": "arn:aws:sts::604977880911:assumed-role/AWSReservedSSO_AdministratorAccess_646c93d042184b81/muhammad.zubair1@arbisoft.com",
     "tags": []
 }
