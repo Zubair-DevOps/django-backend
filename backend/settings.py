@@ -96,11 +96,11 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "testdb",  # RDS database ka naam
-        "USER": "zubair",  # RDS user
-        "PASSWORD": "zubair.1234",  # RDS user ka password
-        "HOST": "alson-test-db.c93nshwqez3k.us-east-1.rds.amazonaws.com",  # RDS instance ka endpoint
-        "PORT": "3306",  # Default MySQL port
+        "NAME": "testdb",
+        "USER": "zubair",
+        "PASSWORD": "zubair.1234",
+        "HOST": "alson-test-db.c93nshwqez3k.us-east-1.rds.amazonaws.com",
+        "PORT": "3306",
     }
 }
 
@@ -151,3 +151,9 @@ CORS_ORIGIN_WHITELIST = [
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ORIGIN_ALLOW_ALL = True
+
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://api.devopstest.fun",
+    "https://www.api.devopstest.fun",
+]
