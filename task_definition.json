@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:604977880911:task-definition/alson-test-td-file:3",
+    "family": "alson-test-td-file",
     "containerDefinitions": [
         {
             "name": "django-backend",
-            "image": "604977880911.dkr.ecr.us-east-1.amazonaws.com/alson-django-backend:latest",
+            "image": "604977880911.dkr.ecr.us-east-1.amazonaws.com/alson-django-backend:ca750e1e05b9fd2027ba4aaa58f3a63bc437a4d1",
             "cpu": 0,
             "portMappings": [
                 {
@@ -21,10 +21,8 @@
                 "./entrypoint.sh"
             ],
             "environment": [],
-            "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
-            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
@@ -34,8 +32,7 @@
                     "max-buffer-size": "25m",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs"
-                },
-                "secretOptions": []
+                }
             },
             "systemControls": []
         },
@@ -53,7 +50,6 @@
             ],
             "essential": true,
             "environment": [],
-            "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
             "logConfiguration": {
@@ -65,52 +61,15 @@
                     "max-buffer-size": "25m",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs"
-                },
-                "secretOptions": []
+                }
             },
             "systemControls": []
         }
     ],
-    "family": "alson-test-td-file",
     "executionRoleArn": "arn:aws:iam::604977880911:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 3,
     "volumes": [],
-    "status": "ACTIVE",
-    "requiresAttributes": [
-        {
-            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-        },
-        {
-            "name": "ecs.capability.execution-role-awslogs"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.ecr-auth"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.28"
-        },
-        {
-            "name": "ecs.capability.execution-role-ecr-pull"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-        },
-        {
-            "name": "ecs.capability.task-eni"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
-        }
-    ],
     "placementConstraints": [],
-    "compatibilities": [
-        "EC2",
-        "FARGATE"
-    ],
     "requiresCompatibilities": [
         "FARGATE"
     ],
@@ -120,7 +79,5 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-12-09T18:46:45.144Z",
-    "registeredBy": "arn:aws:sts::604977880911:assumed-role/AWSReservedSSO_AdministratorAccess_646c93d042184b81/muhammad.zubair1@arbisoft.com",
-    "tags": []
+    "enableFaultInjection": false
 }
